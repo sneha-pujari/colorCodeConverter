@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+body {
+    background-color:  #ffd454;
+    color: #252830;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .title {
+    margin-bottom: 1em;
+  }
+  
+  #convert-form {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+.container{
+  padding: 7rem;
+  vertical-align: middle;
+}
+
+  #result {
+    margin-top: 3em;
+  }
+  #convert-input{
+    background-color: transparent;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.1);
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+  
+
+  }
+.navigation {
+    background-color: rgba(184,134,11, 0.4);
+    padding: 2rem;
+    border-bottom-left-radius: 1rem;
+    font-size: 2rem;
+    text-align: left;
+    font-weight: 50;
+
+}
+
+.navigation .nav-brand {
+    font-weight: bold;
+}
+  
+.link{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#btnst{
+    text-align: center;
+    margin: 1rem 1rem 1rem 1rem; 
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    background-color: transparent; 
+    font-family: 'Raleway', sans-serif;
+    width: 20rem;
+    font-size: 1.5rem;
+   
+}
