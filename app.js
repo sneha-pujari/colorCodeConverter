@@ -16,10 +16,10 @@ function hexToRgb(hex) {
     
     if (inputValue.includes('#') && inputValue.length <= 7) {
       resultDiv.innerHTML = `<h3>rgb(${hexToRgb(inputValue)})</h3>`;
-      document.body.style.color = lightOrDark(inputValue);
+      document.body.style.color = lightOrDark(hexToRgb(inputValue));
 
     //document.body.style.backgroundColor = rgb(hexToRgb(inputValue)); 
-    console.log("andar se hun"+hexToRgb(inputValue))
+    console.log(hexToRgb(inputValue))
     } else {
       inputValue = inputValue.replace(/(rgb)|\(|\)/g, '')
                              .split(',')
@@ -27,12 +27,12 @@ function hexToRgb(hex) {
       
       resultDiv.innerHTML = `<h3>${rgbToHex(inputValue)}</h3>`;
     //   document.body.style.backgroundColor = {rgbToHex(inputValue)};
-    console.log("andar se hun"+rgbToHex(inputValue)) 
-    document.body.style.color = lightOrDark(inputValue);
+    console.log(rgbToHex(inputValue)) 
+    document.body.style.color = lightOrDark(rgbToHex(inputValue));
     // document.body.style.backgroundColor = result.value;
     }
    var res = document.querySelector("#result");
-   console.log(res.textContent);
+   console.log("result"+res.textContent);
    document.body.style.backgroundColor = res.textContent;
 //    if(res.textContent === "")
   }
