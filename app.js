@@ -15,7 +15,7 @@ function hexToRgb(hex) {
     const resultDiv = document.getElementById('result');
     
     if (inputValue.includes('#') && inputValue.length <= 7) {
-      resultDiv.innerHTML = `<h1>rgb(${hexToRgb(inputValue)})</h1>`;
+      resultDiv.innerHTML = `<h3>rgb(${hexToRgb(inputValue)})</h3>`;
       document.body.style.color = lightOrDark(hexToRgb(inputValue));
 
     //document.body.style.backgroundColor = rgb(hexToRgb(inputValue)); 
@@ -25,7 +25,7 @@ function hexToRgb(hex) {
                              .split(',')
                              .map(val => Number(val));
       
-      resultDiv.innerHTML = `<h1>${rgbToHex(inputValue)}</h1>`;
+      resultDiv.innerHTML = `<h3>${rgbToHex(inputValue)}</h3>`;
     //   document.body.style.backgroundColor = {rgbToHex(inputValue)};
     console.log(rgbToHex(inputValue)) 
     document.body.style.color = lightOrDark(rgbToHex(inputValue));
