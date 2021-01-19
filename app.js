@@ -10,13 +10,57 @@ function hexToRgb(hex) {
     console.log(rgb.reduce((acc,val) => acc + (0 + val.toString(16)).slice(-2), '#'));
     return rgb.reduce((acc,val) => acc + (0 + val.toString(16)).slice(-2), '#');
   }
+
+  function lightOrDark(color) {
+    console.log("lightordark: "+color)
+        // Variables for red, green, blue values
+        var r, g, b, hsp;
+        
+        // Check the format of the color, HEX or RGB?
+        if (color.match(/^rgb/)) {
+    
+            // If RGB --> store the red, green, blue values in separate variables
+            color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+            
+            r = color[1];
+            g = color[2];
+            b = color[3];
+        } 
+        else {
+            
+            // If hex --> Convert it to RGB: http://gist.github.com/983661
+            color = +("0x" + color.slice(1).replace( 
+            color.length < 5 && /./g, '$&$&'));
+    
+            r = color >> 16;
+            g = color >> 8 & 255;
+            b = color & 255;
+        }
+        
+        // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+        hsp = Math.sqrt(
+        0.299 * (r * r) +
+        0.587 * (g * g) +
+        0.114 * (b * b)
+        );
+    
+        // Using the HSP value, determine whether the color is light or dark
+        if (hsp>127.5) {
+           console.log('light');
+            return '#000000';
+        } 
+        else {
+            console.log('dark');
+            return '#ffffff';
+        }
+    }
   
   function validateInput(inputValue) {
     const resultDiv = document.getElementById('result');
     
     if (inputValue.includes('#') && inputValue.length <= 7) {
       resultDiv.innerHTML = `<h1>rgb(${hexToRgb(inputValue)})</h1>`;
-     // document.body.style.color = lightOrDark(hexToRgb(inputValue));
+     document.body.style.color = lightOrDark(hexToRgb(inputValue));
 
    
     console.log(hexToRgb(inputValue))
@@ -29,7 +73,7 @@ function hexToRgb(hex) {
       
       resultDiv.innerHTML = `<h3>${rgbToHex(inputValue)}</h3>`;
     console.log(rgbToHex(inputValue)) 
-    //document.body.style.color = lightOrDark(rgbToHex(inputValue));
+    document.body.style.color = lightOrDark(rgbToHex(inputValue));
  
     }
    
@@ -41,6 +85,7 @@ function hexToRgb(hex) {
 //    if(res.textContent === "")
   }
  
+
   
   document.getElementById('convert-form').onsubmit = function(event) {
     event.preventDefault();
