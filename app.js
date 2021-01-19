@@ -57,11 +57,13 @@ function hexToRgb(hex) {
   
   function validateInput(inputValue) {
     const resultDiv = document.getElementById('result');
-    
+    var b1 = document.getElementById("btnst");
+    console.log(b1)
     if (inputValue.includes('#') && inputValue.length <= 7) {
       resultDiv.innerHTML = `<h1>rgb(${hexToRgb(inputValue)})</h1>`;
-     document.body.style.color = lightOrDark(hexToRgb(inputValue));
-
+     document.body.style.color = lightOrDark(inputValue);
+   
+    b1.style.color = lightOrDark(inputValue);
    
     console.log(hexToRgb(inputValue))
     } 
@@ -74,7 +76,7 @@ function hexToRgb(hex) {
       resultDiv.innerHTML = `<h3>${rgbToHex(inputValue)}</h3>`;
     console.log(rgbToHex(inputValue)) 
     document.body.style.color = lightOrDark(rgbToHex(inputValue));
- 
+   b1.style.color = lightOrDark(rgbToHex(inputValue));
     }
    
    //body background color
